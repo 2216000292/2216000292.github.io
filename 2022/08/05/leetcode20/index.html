@@ -108,7 +108,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>刷题日记leetcode 20 python3<br>2022-08-05</p>
-<p>个人解析：初始化一个哈希pairs，依次遍历字符串，如果遇到左括号则放入栈，如果遇到又括号则跟栈顶对比利用pairs，如果两者匹配则pop(),如果不匹配或者栈顶已经为空则return false，同时在function前面添加一点常识字符串若为单数不符合题目要求，减少运算时间。</p>
+<p>个人解析：初始化一个哈希pairs，依次遍历字符串，如果遇到左括号则放入栈，如果遇到右括号则跟栈顶对比利用pairs，如果两者匹配则pop(),如果不匹配或者栈顶已经为空则return false，同时在function前面添加一点常识字符串若为单数不符合题目要求，减少运算时间。</p>
 <p>附：stack[-1] 表示的是栈顶值</p>
 <p>时间复杂度为： O(n)</p>
 <pre><code>class Solution:
