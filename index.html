@@ -171,6 +171,78 @@
     
     
     <article
+  id="post-leetcode20 - Copy"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/08/05/leetcode20%20-%20Copy/"
+    >lc21 合并两个有序链表 Merge Two Sorted Lists</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/08/05/leetcode20%20-%20Copy/" class="article-date">
+  <time datetime="2022-08-05T16:54:07.000Z" itemprop="datePublished">2022-08-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>刷题日记leetcode 21 python3<br>2022-08-05</p>
+<p>不会<br>方法1：迭代 可以用while循环遍历两个链表，条件设置为如果任意一条list为空则停止，并把指针指向另外一条list，依次检查哪一条list当前所在结点为最小。<br>方法2：递归 递归关键是设置好最后一层应该通过什么条件结束，假设给出 1 2 4 和 3 5，第一次递归1是最小把 1 保留，然后让 2 4 和 3 5继续调用函数，第二次递归2为最小，然后继续进入递归4 和 3 5继续，以此类推，最后关闭条件设置为如果有任何一条list为空，那么直接return另外一条的list（return剩余还未递归到的节点在本例子就是5，为最后一层）</p>
+<pre><code>class Solution:
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -&gt; ListNode:
+    if l1 is None:
+        return l2
+    elif l2 is None:
+        return l1
+    elif l1.val &lt; l2.val:
+        l1.next = self.mergeTwoLists(l1.next, l2)
+        return l1
+    else:
+        l2.next = self.mergeTwoLists(l1, l2.next)
+        return l2
+</code></pre>
+<p>1-&gt;2-&gt;4   1保留<br>3-&gt;5</p>
+<p>2-&gt;4      2保留<br>3-&gt;5</p>
+<p>4<br>3-&gt;5     3保留  </p>
+<p>4<br>5       4保留</p>
+<p>null<br>5       return 5 </p>
+<p>那么再一步步返回去 就变成了 1 2 3 4 5</p>
+<p>Runtime: 41 ms, faster than 89.05% of Python3 online submissions for Merge Two Sorted Lists.<br>Memory Usage: 14 MB, less than 32.66% of Python3 online submissions for Merge Two Sorted Lists.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-leetcode20"
   class="article article-type-post"
   itemscope
